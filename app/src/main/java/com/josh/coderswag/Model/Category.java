@@ -16,4 +16,9 @@ public class Category {
     public String getImage() {
         return image;
     }
+
+    @Override
+    public String toString() {
+        return title;
+    }
 }

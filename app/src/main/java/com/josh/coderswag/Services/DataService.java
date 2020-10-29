@@ -47,4 +47,20 @@ public class DataService {
         }
         return dataService;
     }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public List<Product> getHats() {
+        return hats;
+    }
+
+    public List<Product> getHoodies() {
+        return hoodies;
+    }
+
+    public List<Product> getShirts() {
+        return shirts;
+    }
 }
