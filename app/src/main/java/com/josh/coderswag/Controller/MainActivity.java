@@ -3,8 +3,11 @@ package com.josh.coderswag.Controller;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.josh.coderswag.Adapters.CategoryAdapter;
 import com.josh.coderswag.Model.Category;
@@ -29,5 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
         ListView categoryListView = (ListView)findViewById(R.id.categoryListView);
         categoryListView.setAdapter(adapter);
+
+        //Not for recycler views
+//        categoryListView.setOnItemClickListener((parent, view, position, id) -> {
+//            Category category = DataService.getDataService().getCategories().get(position);
+//            Toast.makeText(MainActivity.this, "You clicked the " + category.getTitle() + " cell", Toast.LENGTH_SHORT).show();
+//        });
     }
 }
