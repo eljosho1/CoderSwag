@@ -13,6 +13,18 @@ public class DataService {
             new Category("SHIRTS", "shirtimage"),
             new Category("HOODIES", "hoodieimage"),
             new Category("HATS", "hatimage"),
+            new Category("DIGITAL", "digitalgoodsimage"),
+            new Category("SHIRTS", "shirtimage"),
+            new Category("HOODIES", "hoodieimage"),
+            new Category("HATS", "hatimage"),
+            new Category("DIGITAL", "digitalgoodsimage"),
+            new Category("SHIRTS", "shirtimage"),
+            new Category("HOODIES", "hoodieimage"),
+            new Category("HATS", "hatimage"),
+            new Category("DIGITAL", "digitalgoodsimage"),
+            new Category("SHIRTS", "shirtimage"),
+            new Category("HOODIES", "hoodieimage"),
+            new Category("HATS", "hatimage"),
             new Category("DIGITAL", "digitalgoodsimage")
     );
 
