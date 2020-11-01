@@ -1,5 +1,7 @@
 package com.josh.coderswag.Services;
 
+import android.util.Log;
+
 import com.josh.coderswag.Model.Category;
 import com.josh.coderswag.Model.Product;
 
@@ -9,7 +11,7 @@ public class DataService {
 
     private static DataService dataService;
 
-    private final List<Category> categories = List.of(
+    private final List<Category> categories = List.<Category>of(
             new Category("SHIRTS", "shirtimage"),
             new Category("HOODIES", "hoodieimage"),
             new Category("HATS", "hatimage"),
@@ -61,6 +63,7 @@ public class DataService {
     }
 
     public List<Category> getCategories() {
+        Log.d("DataService", "getCategories() " + categories.size());
         return categories;
     }
 
