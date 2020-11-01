@@ -80,7 +80,7 @@ public class CategoryRecycleAdapter extends RecyclerView.Adapter<CategoryRecycle
                 }
             });
 
-            Log.d("RecyclerView", "Binding: " + category.getTitle() + ", " + category.getImage());
+            Log.d("RecyclerView", "Binding: " + category.getTitle() + ", " + category.getImage() + " (" + getAdapterPosition() + ")");
         }
 
     }

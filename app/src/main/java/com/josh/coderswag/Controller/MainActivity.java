@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.josh.coderswag.Services.DataService;
 public class MainActivity extends AppCompatActivity {
 
     CategoryRecycleAdapter adapter;
+    public static final String EXTRA_CATEGORY = "com.example.coderswag.CATEGORY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(View itemView, int position) {
                 TextView categoryText = (TextView) itemView.findViewById(R.id.categoryName);
                 Toast.makeText(MainActivity.this, "Clicked " + categoryText.getText() + " at position " + position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, ProductsActivity.class);
+                intent.putExtra(EXTRA_CATEGORY, categoryText.getText());
+                startActivity(intent);
             }
         });
 

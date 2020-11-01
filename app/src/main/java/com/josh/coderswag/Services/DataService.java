@@ -31,25 +31,25 @@ public class DataService {
     );
 
     private final List<Product> hats = List.<Product>of(
-            new Product("Devslopes Graphic Beanie", "$18", "hat01"),
-            new Product("Devslopes Hat Black", "$20", "hat02"),
-            new Product("Devslopes Hat White", "$18", "hat03"),
-            new Product("Devslopes Hat Snapback", "22", "hat04")
+            new Product("Devslopes Graphic Beanie", "$18", "hat1"),
+            new Product("Devslopes Hat Black", "$20", "hat2"),
+            new Product("Devslopes Hat White", "$18", "hat3"),
+            new Product("Devslopes Hat Snapback", "22", "hat4")
     );
 
     private final List<Product> hoodies = List.<Product>of(
-            new Product("Devslopes Hoodie Gray", "$18", "hoodie01"),
-            new Product("Devslopes Hoodie Red", "$32", "hoodie02"),
-            new Product("Devslopes Hoodie Blue", "$18", "hoodie03"),
-            new Product("Devslopes Hoodie Black", "$32", "hoodie04")
+            new Product("Devslopes Hoodie Gray", "$18", "hoodie1"),
+            new Product("Devslopes Hoodie Red", "$32", "hoodie2"),
+            new Product("Devslopes Hoodie Blue", "$18", "hoodie3"),
+            new Product("Devslopes Hoodie Black", "$32", "hoodie4")
     );
 
     private final List<Product> shirts = List.<Product>of(
-            new Product("Devslopes Shirt Gray", "$18", "shirt01"),
-            new Product("Devslopes Logo Shirt", "$32", "shirt02"),
-            new Product("Devslopes Shirt Blue", "$18", "shirt03"),
-            new Product("Devslopes Hustle", "$32", "shirt04"),
-            new Product("Kickflip Studios", "$18", "shirt05")
+            new Product("Devslopes Shirt Gray", "$18", "shirt1"),
+            new Product("Devslopes Logo Shirt", "$32", "shirt2"),
+            new Product("Devslopes Shirt Blue", "$18", "shirt3"),
+            new Product("Devslopes Hustle", "$32", "shirt4"),
+            new Product("Kickflip Studios", "$18", "shirt5")
     );
 
     private DataService() {
