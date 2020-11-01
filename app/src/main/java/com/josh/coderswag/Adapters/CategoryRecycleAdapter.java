@@ -20,7 +20,7 @@ public class CategoryRecycleAdapter extends RecyclerView.Adapter<CategoryRecycle
 
     // Define the listener interface????
     public interface OnItemClickListener {
-        void onItemClick(View itemView, int position);
+        void onItemClick(View itemView, int position, Category category);
     }
 
     Context context;
@@ -74,7 +74,7 @@ public class CategoryRecycleAdapter extends RecyclerView.Adapter<CategoryRecycle
                     if (listener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
-                            listener.onItemClick(itemView, position);
+                            listener.onItemClick(itemView, position, category);
                         }
                     }
                 }

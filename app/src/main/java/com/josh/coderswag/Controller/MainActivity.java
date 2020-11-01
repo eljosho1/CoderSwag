@@ -20,11 +20,12 @@ import com.josh.coderswag.Adapters.CategoryRecycleAdapter;
 import com.josh.coderswag.Model.Category;
 import com.josh.coderswag.R;
 import com.josh.coderswag.Services.DataService;
+import com.josh.coderswag.Utilities.Constants;
 
 public class MainActivity extends AppCompatActivity {
 
     CategoryRecycleAdapter adapter;
-    public static final String EXTRA_CATEGORY = "com.example.coderswag.CATEGORY";
+    //public static final String EXTRA_CATEGORY = "com.example.coderswag.CATEGORY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +38,11 @@ public class MainActivity extends AppCompatActivity {
                 DataService.getDataService().getCategories(), new CategoryRecycleAdapter.OnItemClickListener(){
 
             @Override
-            public void onItemClick(View itemView, int position) {
+            public void onItemClick(View itemView, int position, Category category) {
                 TextView categoryText = (TextView) itemView.findViewById(R.id.categoryName);
                 Toast.makeText(MainActivity.this, "Clicked " + categoryText.getText() + " at position " + position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, ProductsActivity.class);
-                intent.putExtra(EXTRA_CATEGORY, categoryText.getText());
+                intent.putExtra(Constants.EXTRA_CATEGORY, category.getTitle());
                 startActivity(intent);
             }
         });
