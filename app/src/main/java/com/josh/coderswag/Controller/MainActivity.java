@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.josh.coderswag.Adapters.CategoryAdapter;
@@ -31,7 +32,15 @@ public class MainActivity extends AppCompatActivity {
         Log.d("MainActivity", "num categores " + DataService.getDataService().getCategories().size());
 
         adapter = new CategoryRecycleAdapter(this,
-                DataService.getDataService().getCategories());
+                DataService.getDataService().getCategories(), new CategoryRecycleAdapter.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(View itemView, int position) {
+                TextView categoryText = (TextView) itemView.findViewById(R.id.categoryName);
+                Toast.makeText(MainActivity.this, "Clicked " + categoryText.getText() + " at position " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+
 //        adapter = new ArrayAdapter<Category>(this,
 //                android.R.layout.simple_list_item_1,
 //                DataService.getDataService().getCategories());
@@ -45,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         //set this for optimisation, when the cells will always be the same size
         categoryListView.setHasFixedSize(true);
+
 
         Log.d("MainActivity", "OnCreate Completed!");
 

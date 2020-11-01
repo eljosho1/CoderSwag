@@ -18,12 +18,19 @@ import java.util.List;
 
 public class CategoryRecycleAdapter extends RecyclerView.Adapter<CategoryRecycleAdapter.Holder> {
 
+    // Define the listener interface????
+    public interface OnItemClickListener {
+        void onItemClick(View itemView, int position);
+    }
+
     Context context;
     List<Category> categories;
+    private OnItemClickListener listener;
 
-    public CategoryRecycleAdapter(Context context, List<Category> categories) {
+    public CategoryRecycleAdapter(Context context, List<Category> categories, OnItemClickListener listener) {
         this.context = context;
         this.categories = categories;
+        this.listener = listener;
     }
 
     @NonNull
@@ -46,7 +53,7 @@ public class CategoryRecycleAdapter extends RecyclerView.Adapter<CategoryRecycle
         return categories.size();
     }
 
-    class Holder extends RecyclerView.ViewHolder {
+    class Holder extends RecyclerView.ViewHolder{
 
         private final ImageView categoryImage = itemView.findViewById(R.id.categoryImage);
         private final TextView categoryName = itemView.findViewById(R.id.categoryName);
@@ -59,6 +66,20 @@ public class CategoryRecycleAdapter extends RecyclerView.Adapter<CategoryRecycle
             categoryName.setText(category.getTitle());
             int identifier = context.getResources().getIdentifier(category.getImage(), "drawable", context.getPackageName());
             categoryImage.setImageResource(identifier);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Triggers click upwards to the adapter on click
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(itemView, position);
+                        }
+                    }
+                }
+            });
+
             Log.d("RecyclerView", "Binding: " + category.getTitle() + ", " + category.getImage());
         }
 
