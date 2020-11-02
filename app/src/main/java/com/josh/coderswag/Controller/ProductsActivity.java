@@ -9,6 +9,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.josh.coderswag.Adapters.ProductRecyclerAdapter;
 import com.josh.coderswag.Model.Product;
@@ -36,7 +37,14 @@ public class ProductsActivity extends AppCompatActivity {
 
         List<Product> productList = DataService.getDataService().getProducts(extraCategory);
 
-        adapter = new ProductRecyclerAdapter(this, productList);
+        adapter = new ProductRecyclerAdapter(this, productList,
+                product -> {
+                    Toast.makeText(ProductsActivity.this, "Clicked " + product.getTitle(), Toast.LENGTH_SHORT).show();
+                    Intent productDetailIntent = new Intent(this, ProductDetailActivity.class);
+                    //set parcle
+                    productDetailIntent.putExtra(Constants.EXTRA_PRODUCT, product);
+                    startActivity(productDetailIntent);
+                });
 
         int orientation = getResources().getConfiguration().orientation;
         int spanCount = 2;

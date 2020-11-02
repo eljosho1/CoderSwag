@@ -16,16 +16,23 @@ import com.josh.coderswag.Model.Product;
 import com.josh.coderswag.R;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter.HolderProduct> {
 
     private static final String PRODUCT_RECYCLER_TAG = "ProductRecyclerAdapter";
     private Context context;
     private List<com.josh.coderswag.Model.Product> productList;
+    private Consumer<Product> clickConsumer;
 
-    public ProductRecyclerAdapter(Context context, List<com.josh.coderswag.Model.Product> productList) {
+//    public interface ClickConsumer{
+//        void customClick(Product product);
+//    }
+
+    public ProductRecyclerAdapter(Context context, List<com.josh.coderswag.Model.Product> productList, Consumer<Product> clickConsumer) {
         this.context = context;
         this.productList = productList;
+        this.clickConsumer = clickConsumer;
     }
 
     @NonNull
@@ -65,6 +72,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
             productPrice.setText(product.getPrice());
             int identifier = context.getResources().getIdentifier(product.getImage(), "drawable", context.getPackageName());
             productImage.setImageResource(identifier);
+            itemView.setOnClickListener(v -> clickConsumer.accept(product));
         }
     }
 }
